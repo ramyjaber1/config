@@ -1,0 +1,19 @@
+{
+  "theme": "Solarized Dark",
+  "ui_font_size": 16,
+  "vim_mode": true,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 20,
+  "relative_line_numbers": true,
+  "cursor_blink": false,
+  "scrollbar": {
+    "show": "never"
+  },
+  "terminal": {
+    "font_size": 15,
+    "font_family": "JetBrainsMono Nerd Font",
+    "line_height": {
+      "custom": 1.5
+    }
+  }
+}
