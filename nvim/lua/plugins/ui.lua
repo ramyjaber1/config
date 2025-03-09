@@ -60,6 +60,25 @@ return {
 		},
 	},
 
+	-- navigator
+	{
+		"christoomey/vim-tmux-navigator",
+		cmd = {
+			"TmuxNavigateLeft",
+			"TmuxNavigateDown",
+			"TmuxNavigateUp",
+			"TmuxNavigateRight",
+			"TmuxNavigatePrevious",
+		},
+		keys = {
+			{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+			{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+			{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+		},
+	},
+
 	-- animations
 	{
 		"echasnovski/mini.animate",
@@ -73,6 +92,7 @@ return {
 
 	-- buffer line
 	{
+
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
 		keys = {
@@ -81,7 +101,7 @@ return {
 		},
 		opts = {
 			options = {
-				--mode = "",
+				mode = "tabs",
 				-- separator_style = "slant",
 				show_buffer_close_icons = false,
 				show_close_icon = false,
@@ -120,6 +140,27 @@ return {
 			})
 		end,
 	},
+
+	-- statusline
+	{
+		"nvim-lualine/lualine.nvim",
+		opts = function(_, opts)
+			local LazyVim = require("lazyvim.util")
+			opts.sections.lualine_c[4] = {
+				LazyVim.lualine.pretty_path({
+					length = 0,
+					relative = "cwd",
+					modified_hl = "MatchParen",
+					directory_hl = "",
+					filename_hl = "Bold",
+					modified_sign = "",
+					readonly_icon = " 󰌾 ",
+				}),
+			}
+		end,
+	},
+
+	require("lualine"),
 
 	{
 		"folke/zen-mode.nvim",
